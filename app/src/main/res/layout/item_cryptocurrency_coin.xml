@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="24dp">
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/colorCoinCard"
+    app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:id="@+id/ic_cryptocurrency"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginLeft="@dimen/horizontal_margin_small"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,14 +66,12 @@
             app:layout_constraintTop_toTopOf="@id/rate_cryptocurrency"
             tools:text="$9761.06" />
 
-        <TextView
-            android:id="@+id/more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:text="more"
-            android:textSize="12sp"
-            android:textStyle="bold|italic"
+            android:src="@drawable/percent_rise_36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

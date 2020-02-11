@@ -171,4 +171,8 @@ public class CryptoCurrencyCoin {
         this.lastUpdated = lastUpdated;
     }
 
+    public boolean hasNegativePercentChange1h() {
+        return percentChange1h.charAt(0) == '-';
+    }
+
 }

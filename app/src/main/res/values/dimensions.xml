@@ -10,4 +10,7 @@
     <dimen name="horizontal_margin_small">8dp</dimen>
     <dimen name="horizontal_margin_xsmall">4dp</dimen>
 
+    <dimen name="default_padding_small">6dp</dimen>
+    <dimen name="default_padding_xsmall">4dp</dimen>
+
 </resources>

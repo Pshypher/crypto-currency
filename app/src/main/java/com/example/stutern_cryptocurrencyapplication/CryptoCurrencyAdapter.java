@@ -1,6 +1,5 @@
 package com.example.stutern_cryptocurrencyapplication;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +52,7 @@ public class CryptoCurrencyAdapter extends RecyclerView.Adapter<CryptoCurrencyAd
         private TextView cryptoAbbrNameTextView;
         private TextView cryptoRateTextView;
         private TextView usdRateTextView;
+        private ImageView percentChangeImageView;
 
         public ViewHolder(View itemView) {
 
@@ -62,27 +62,38 @@ public class CryptoCurrencyAdapter extends RecyclerView.Adapter<CryptoCurrencyAd
             cryptoAbbrNameTextView = (TextView) itemView.findViewById(R.id.name_abbr_cryptocurrency);
             cryptoRateTextView = (TextView) itemView.findViewById(R.id.rate_cryptocurrency);
             usdRateTextView = (TextView) itemView.findViewById(R.id.rate_usd);
+            percentChangeImageView = (ImageView) itemView.findViewById(R.id.arrow);
         }
 
         public void bind(CryptoCurrencyCoin coin) {
+
+            String symbol = coin.getSymbol();
+            symbol = (symbol.length() < 3) ? symbol : symbol.substring(0, 3);
 
             ColorGenerator generator = ColorGenerator.MATERIAL;
             int color = generator.getRandomColor();
 
             TextDrawable.IBuilder builder = TextDrawable.builder()
                                                         .beginConfig()
-                                                        .fontSize(20)
+                                                        .fontSize(48)
+                                                        .bold()
                                                         .endConfig()
                                                         .round();
 
-            TextDrawable drawable = builder.build(coin.getSymbol().substring(0, 3), color);
+            TextDrawable drawable = builder.build(symbol, color);
             cryptoAbbrImageView.setImageDrawable(drawable);
 
-            cryptoRateTextView.setText(String.format("1%s", coin.getSymbol()));
+            cryptoRateTextView.setText(String.format("1 %s", coin.getSymbol()));
             cryptoAbbrNameTextView.setText(String.format("%s - %s", coin.getSymbol(),
                                                             coin.getName()));
             usdRateTextView.setText(String.format("$%.2f",
                     Double.parseDouble(coin.getPriceUsd())));
+
+            if (coin.hasNegativePercentChange1h()) {
+                percentChangeImageView.setImageResource(R.drawable.percent_drop_36dp);
+            } else {
+                percentChangeImageView.setImageResource(R.drawable.percent_rise_36dp);
+            }
         }
     }
 }
