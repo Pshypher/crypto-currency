@@ -1,17 +1,12 @@
 package com.example.stutern_cryptocurrencyapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 
-import com.example.stutern_cryptocurrencyapplication.CryptoCurrencyClient;
-import com.example.stutern_cryptocurrencyapplication.R;
-import com.example.stutern_cryptocurrencyapplication.models.CryptoCurrencyCoin;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -20,7 +15,12 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+import com.example.stutern_cryptocurrencyapplication.models.CryptoCurrencyCoin;
+
 public class MainActivity extends AppCompatActivity {
+
+    private CryptoCurrencyAdapter mAdapter;
+    private Subscription mSubscription;
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
@@ -29,16 +29,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recylcer_view);
+
         CryptoCurrencyClient client = CryptoCurrencyClient.getCryptoCurrencyClient();
 
-        Subscription subscription = client.getCryptoCurrencyCoins(10)
+        mSubscription = client.getCryptoCurrencyCoins(10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         new Subscriber<ArrayList<CryptoCurrencyCoin>>() {
                             @Override
                             public void onCompleted() {
-                                Log.d(LOG_TAG, "In onCompleted");
+                                recyclerView.setAdapter(mAdapter);
+                                RecyclerView.LayoutManager manager =
+                                        new LinearLayoutManager(MainActivity.this,
+                                                LinearLayoutManager.VERTICAL, false);
+                                recyclerView.setLayoutManager(manager);
                             }
                             @Override
                             public void onError(Throwable e) {
@@ -48,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onNext(
                                     ArrayList<CryptoCurrencyCoin> coins) {
-                                Log.d(LOG_TAG, coins.get(0).getName());
+                                mAdapter = new CryptoCurrencyAdapter(coins);
                             }
                         }
 
                 );
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSubscription.unsubscribe();
     }
 }

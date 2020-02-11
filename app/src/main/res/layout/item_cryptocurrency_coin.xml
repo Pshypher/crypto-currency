@@ -1,69 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="24dp">
 
-    <ImageView
-        android:id="@+id/ic_cryptocurrency"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="@dimen/horizontal_margin_small" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/name_abbr_cryptocurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/ic_cryptocurrency"
-        app:layout_constraintStart_toEndOf="@id/ic_cryptocurrency"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:textSize="18sp"
-        tools:text="Bitcoin - BTC" />
+        <ImageView
+            android:id="@+id/ic_cryptocurrency"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="@dimen/horizontal_margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/rate_cryptocurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/ic_cryptocurrency"
-        app:layout_constraintBottom_toBottomOf="@id/ic_cryptocurrency"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:textSize="18sp"
-        tools:text="1BTC" />
+        <TextView
+            android:id="@+id/name_abbr_cryptocurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/rate_cryptocurrency"
+            app:layout_constraintStart_toEndOf="@id/ic_cryptocurrency"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bitcoin - BTC" />
 
-    <ImageView
-        android:id="@+id/ic_exchange_rate"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintStart_toEndOf="@id/rate_cryptocurrency"
-        android:layout_marginLeft="@dimen/horizontal_margin_xsmall"
-        app:layout_constraintBottom_toBottomOf="@id/rate_cryptocurrency"
-        android:src="@drawable/exchange_rate_24dp" />
+        <TextView
+            android:id="@+id/rate_cryptocurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ic_cryptocurrency"
+            app:layout_constraintTop_toBottomOf="@id/name_abbr_cryptocurrency"
+            tools:text="1BTC" />
 
-    <TextView
-        android:id="@+id/rate_usd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/ic_cryptocurrency"
-        app:layout_constraintStart_toEndOf="@id/ic_exchange_rate"
-        android:layout_marginLeft="@dimen/horizontal_margin_xsmall"
-        android:textSize="18sp"
-        tools:text="$9761.06" />
+        <ImageView
+            android:id="@+id/ic_exchange_rate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/horizontal_margin_xsmall"
+            android:src="@drawable/exchange_rate_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/rate_cryptocurrency"
+            app:layout_constraintStart_toEndOf="@id/rate_cryptocurrency"
+            app:layout_constraintTop_toTopOf="@id/rate_cryptocurrency" />
 
-    <TextView
-        android:id="@+id/more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:text="more"
-        android:textSize="12sp"
-        android:textStyle="bold|italic" />
+        <TextView
+            android:id="@+id/rate_usd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_margin_xsmall"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/rate_cryptocurrency"
+            app:layout_constraintStart_toEndOf="@id/ic_exchange_rate"
+            app:layout_constraintTop_toTopOf="@id/rate_cryptocurrency"
+            tools:text="$9761.06" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="more"
+            android:textSize="12sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
