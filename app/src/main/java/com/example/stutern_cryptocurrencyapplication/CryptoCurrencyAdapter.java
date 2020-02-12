@@ -68,7 +68,7 @@ public class CryptoCurrencyAdapter extends RecyclerView.Adapter<CryptoCurrencyAd
         public void bind(CryptoCurrencyCoin coin) {
 
             String symbol = coin.getSymbol();
-            symbol = (symbol.length() < 3) ? symbol : symbol.substring(0, 3);
+            symbol = (symbol.length() > 3) ? symbol.substring(0, 3) : symbol;
 
             ColorGenerator generator = ColorGenerator.MATERIAL;
             int color = generator.getRandomColor();

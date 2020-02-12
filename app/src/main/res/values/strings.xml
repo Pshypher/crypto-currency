@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">stutern_CryptoCurrency Application</string>
+    <string name="price_usd">Price</string>
+    <string name="market_cap">Market Capitalization USD</string>
+    <string name="volume_24_hour">24 Hour Volume USD</string>
+    <string name="available_supply">Available Supply</string>
+    <string name="total_supply">Total Supply</string>
+    <string name="percent_change_24">Percentage Change within 24 Hours</string>
+    <string name="dismiss">Dismiss</string>
 </resources>
