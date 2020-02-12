@@ -3,14 +3,8 @@ package com.example.stutern_cryptocurrencyapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.util.Log;
 
-import com.example.stutern_cryptocurrencyapplication.CryptoCurrencyClient;
-import com.example.stutern_cryptocurrencyapplication.R;
 import com.example.stutern_cryptocurrencyapplication.models.CryptoCurrencyCoin;
 
 import java.util.ArrayList;
