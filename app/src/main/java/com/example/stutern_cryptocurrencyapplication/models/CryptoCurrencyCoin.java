@@ -114,4 +114,8 @@ public class CryptoCurrencyCoin implements Parcelable {
         percentChange1h = source.readString();
         percentChange24h = source.readString();
     }
+
+    public boolean hasNegative24HourPercentageChange() {
+        return percentChange24h.charAt(0) == '-';
+    }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_width">296dp</dimen>
+
+    <dimen name="textview_gap">12dp</dimen>
+    <dimen name="textview_gap_large">24dp</dimen>
+</resources>

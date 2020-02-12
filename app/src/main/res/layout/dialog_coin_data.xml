@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cryptocurrency_name"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingStart="0dp"
+        android:paddingLeft="0dp"
+        tools:text="Bitcoin (BTC)" />
+
+
+    <TextView
+        android:id="@+id/price_usd_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_usd" />
+
+    <TextView
+        android:id="@+id/price_usd_value"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="$10308.54" />
+
+    <TextView
+        android:id="@+id/market_cap_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/market_cap" />
+
+    <TextView
+        android:id="@+id/market_cap_value"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="187749827130" />
+
+    <TextView
+        android:id="@+id/vol_24h_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/volume_24_hour" />
+
+    <TextView
+        android:id="@+id/vol_24h_value"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="39662465218.4" />
+
+    <TextView
+        android:id="@+id/available_supply_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/available_supply" />
+
+    <TextView
+        android:id="@+id/available_supply_value"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="18213025.0" />
+
+    <TextView
+        android:id="@+id/total_supply_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_supply" />
+
+    <TextView
+        android:id="@+id/total_supply_value"
+        style="@style/DialogTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="18213025.0" />
+
+    <TextView
+        android:id="@+id/percentage_change_parameter"
+        style="@style/DialogTextParameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/percent_change_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/percentage_change_value"
+            style="@style/DialogTextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_arrow_drop_down_red_24dp"
+            tools:text="-5.65" />
+
+    </LinearLayout>
+
+</LinearLayout>
